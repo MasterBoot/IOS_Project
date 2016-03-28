@@ -117,7 +117,7 @@ class ViewController: UIViewController {
         case 0:
             c.text!="0";break;
         case 1:
-            c.text!="\(x+y)";break;
+            c.text!="\(x+y)";cutSet();break;
         case 2:
             c.text!="\(x-y)";break;
         case 3:
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
             c.text!="0";
         }
     }
-    @IBAction func Clear(sender: UIButton) {
+    @IBAction func del(sender: UIButton) {
         c.text!="";
         x=0.0;
         y=0.0;
@@ -158,6 +158,19 @@ class ViewController: UIViewController {
         }
     }
     func cutSet(){
+        /*var str=c.text!;
+        let strlen=str.characters.count;
+        let rang = Range(start: str.startIndex.advancedBy(3), end: str.endIndex.advancedBy(-2));
+        let range = NSMakeRange(strlen-1, 2);
+        let subEnd2 = (str as NSString).substringWithRange(range);
+        if(subEnd2==".0")
+        {
+            str.removeAtIndex(str.endIndex.predecessor());
+            str.removeAtIndex(str.endIndex.predecessor());
+            c.text!=str;
+        }
+        //var str=c.text!;*/
+        
         
     }
     override func viewDidLoad() {
