@@ -5,7 +5,6 @@
 //  Created by MasterBoot on 16/3/17.
 //  Copyright © 2016年 MasterBoot. All rights reserved.
 //
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -65,12 +64,10 @@ class ViewController: UIViewController {
         c.text! += "9";
     }
     @IBAction func Add_0(sender: UIButton) {
-        if(c.text!.isEmpty)
-        {
+        if(c.text!.isEmpty){
             c.text! = "0";
         }
-        else
-        {
+        else{
             zeroSet();
             c.text! += "0";
         }
@@ -79,8 +76,7 @@ class ViewController: UIViewController {
     @IBAction func Add_Point(sender: UIButton) {
         if(!pointLoop)
         {
-            if(!(c.text!==""))
-            {
+            if(!(c.text!=="")){
                 c.text! += ".";
                 pointLoop=true;
             }
@@ -117,8 +113,7 @@ class ViewController: UIViewController {
     }
     @IBAction func Count(sender: UIButton) {
         ySet();
-        switch (loop)
-        {
+        switch (loop){
         case 0:
             c.text!="0";break;
         case 1:
@@ -141,53 +136,29 @@ class ViewController: UIViewController {
         y=0.0;
         pointLoop=false;
     }
-        //print("hello world");
-        //c = a+b;
-        //var ta:Double!=0;
-        //var tb:Double!=0;
-        //var tc:Double!=0;
-        
-        /*if(!a.text!.isEmpty)//判断是否为空
-        {
-            ta=(a.text! as NSString).doubleValue
-        }
-        if(!b.text!.isEmpty)
-        {
-            //tb=(b.text! as NSString).doubleValue
-            tb=(Double)(b.text!);
-        }
-        tc=ta+tb;
-        c.text="\(tc)";*/
-    func xSet(){
-        if(!c.text!.isEmpty)
-        {
+     func xSet(){
+        if(!c.text!.isEmpty){
             x=(Double)(c.text!)!;
         }
-        else
-        {
+        else{
             c.text!="0";
         }
     }
     func ySet(){
-        if(!c.text!.isEmpty)
-        {
+        if(!c.text!.isEmpty){
             y=(Double)(c.text!)!;
         }
-        else
-        {
+        else{
             c.text!="0";
         }
     }
-    func zeroSet()
-    {
-        if(c.text!=="0")
-        {
+    func zeroSet(){
+        if(c.text!=="0"){
             c.text!="";
         }
     }
-    func cutSet()
-    {
-        //var str = c.text;
+    func cutSet(){
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,6 +169,4 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
