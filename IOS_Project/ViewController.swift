@@ -10,12 +10,14 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var c: UITextField!
     var loop=0;
-    var x=0.0;
-    var y=0.0;
+    var x:Double=0.0;
+    var y:Double=0.0;
     var pointLoop=false;
     @IBAction func x_y(sender: UIButton) {
         xSet();
-        c.text!="\(x*x*x)";
+        c.text! = "";
+        pointLoop=false;
+        loop=6;
     }
     @IBAction func x_2(sender: UIButton) {
         xSet();
@@ -26,6 +28,11 @@ class ViewController: UIViewController {
         c.text!="";
         pointLoop=false;
         loop=5;
+    }
+    @IBAction func SetSqrt(sender: UIButton) {
+        xSet();
+        c.text!="\(sqrt(x))";
+        cutSet();
     }
     @IBAction func Add_1(sender: AnyObject) {
         zeroSet();
@@ -119,13 +126,15 @@ class ViewController: UIViewController {
         case 1:
             c.text!="\(x+y)";cutSet();break;
         case 2:
-            c.text!="\(x-y)";break;
+            c.text!="\(x-y)";cutSet();break;
         case 3:
-            c.text!="\(x*y)";break;
+            c.text!="\(x*y)";cutSet();break;
         case 4:
-            c.text!="\(x/y)";break;
+            c.text!="\(x/y)";cutSet();break;
         case 5:
-            c.text!="\(x%y)";break;
+            c.text!="\(x%y)";cutSet();break;
+        case 6:
+            c.text!="\(pow(x,y))";cutSet();break;
         default:
             c.text!="0";
         }
@@ -158,20 +167,35 @@ class ViewController: UIViewController {
         }
     }
     func cutSet(){
-        /*var str=c.text!;
-        let strlen=str.characters.count;
-        let rang = Range(start: str.startIndex.advancedBy(3), end: str.endIndex.advancedBy(-2));
-        let range = NSMakeRange(strlen-1, 2);
-        let subEnd2 = (str as NSString).substringWithRange(range);
-        if(subEnd2==".0")
+        var str=c.text!;
+        let endstr=(str as NSString).substringFromIndex(2);
+
+        if(endstr==".0")
         {
             str.removeAtIndex(str.endIndex.predecessor());
             str.removeAtIndex(str.endIndex.predecessor());
             c.text!=str;
         }
-        //var str=c.text!;*/
+        //var str=c.text!;
+    }
+    func StrSet(){
+        let str = c.text!;
+       // 获得指定字符位置   rangeOfString()
+        //获得指定范围的子字符串  substringWithRange()
+        var left = str.rangeOfString("(");
+        var lindex=left?.startIndex;
+        var right = str.rangeOfString(")");
+        var rindex=right?.startIndex;
+        //let index = str.startIndex.advancedBy(lindex);
+        //var index2 = str.startIndex.advancedBy(rindex);
         
+        //var range = Range<String.Index>(start:left.startIndex,end: right.startIndex);
         
+       // var range = Range<String.Index>(start: lindex,end: rindex);
+        //let ns3=(str as NSString).substringWithRange(<#T##range: NSRange##NSRange#>)
+        //substringWithRange(NSMakeRange(startindex,right-left);
+        
+            //12*5/(2+3);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
