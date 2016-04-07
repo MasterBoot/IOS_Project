@@ -21,18 +21,31 @@ class ViewController: UIViewController {
     }
     @IBAction func x_2(sender: UIButton) {
         xSet();
-        c.text!="\(x*x)";
+        let endstr="\(x*x)";
+        cutSet(endstr);
     }
-    @IBAction func x_mode(sender: UIButton) {
-        xSet();
-        c.text!="";
-        pointLoop=false;
-        loop=5;
+    @IBAction func Delstr(sender: UIButton) {
+        if(c.text!.isEmpty||c.text!=="0")
+        {
+            c.text!="0";
+        }
+        else if((c.text!.characters.count)==1)
+        {
+            c.text!="0";
+        }
+        else
+        {
+            var str=c.text!;
+            str.removeAtIndex(str.endIndex.predecessor());
+            c.text!=str;
+        }
+        
     }
     @IBAction func SetSqrt(sender: UIButton) {
         xSet();
-        c.text!="\(sqrt(x))";
-        cutSet();
+        var str:String;
+        str="\(sqrt(x))";
+        cutSet(str);
     }
     @IBAction func Add_1(sender: AnyObject) {
         zeroSet();
@@ -80,6 +93,30 @@ class ViewController: UIViewController {
         }
         
     }
+    @IBAction func setPai(sender: UIButton) {
+        c.text!="3.14";
+    }
+    
+    @IBAction func SetSin(sender: UIButton) {
+        xSet();
+        c.text!="\(sin(x))";
+    }
+    @IBAction func SetCos(sender: UIButton) {
+        xSet();
+        c.text!="\(cos(x))";
+    }
+    @IBAction func SetTan(sender: UIButton) {
+        xSet();
+        c.text!="\(tan(x))";
+    }
+    @IBAction func SetLn(sender: UIButton) {
+        xSet();
+        c.text!="\(log10(x))";
+    }
+    @IBAction func SetLg(sender: UIButton) {
+        xSet();
+        c.text!="\(log(x))";
+    }
     @IBAction func Add_Point(sender: UIButton) {
         if(!pointLoop)
         {
@@ -87,9 +124,7 @@ class ViewController: UIViewController {
                 c.text! += ".";
                 pointLoop=true;
             }
-            
         }
-        
     }
     @IBAction func Add_JIA(sender: UIButton) {
         xSet();
@@ -118,29 +153,43 @@ class ViewController: UIViewController {
         pointLoop=false;
         loop=4;
     }
+    /*@IBAction func x_mode(sender: UIButton) {
+    
+    }*/
+    /*@IBAction func mode(sender: UIButton) {
+    
+    }*/
+    @IBAction func mode(sender: UIButton) {
+        xSet();
+        c.text!="";
+        pointLoop=false;
+        loop=5;
+    }
+    
     @IBAction func Count(sender: UIButton) {
         ySet();
+        var endstr:String;
         switch (loop){
         case 0:
             c.text!="0";break;
         case 1:
-            c.text!="\(x+y)";cutSet();break;
+            endstr="\(x+y)";cutSet(endstr);break;
         case 2:
-            c.text!="\(x-y)";cutSet();break;
+            endstr="\(x-y)";cutSet(endstr);break;
         case 3:
-            c.text!="\(x*y)";cutSet();break;
+            endstr="\(x*y)";cutSet(endstr);break;
         case 4:
-            c.text!="\(x/y)";cutSet();break;
+            endstr="\(x/y)";cutSet(endstr);break;
         case 5:
-            c.text!="\(x%y)";cutSet();break;
+            endstr="\(fmod(x,y))";cutSet(endstr);break;
         case 6:
-            c.text!="\(pow(x,y))";cutSet();break;
+            endstr="\(pow(x,y))";cutSet(endstr);break;
         default:
             c.text!="0";
         }
     }
     @IBAction func del(sender: UIButton) {
-        c.text!="";
+        c.text!="0";
         x=0.0;
         y=0.0;
         pointLoop=false;
@@ -166,26 +215,27 @@ class ViewController: UIViewController {
             c.text!="";
         }
     }
-    func cutSet(){
-        var str=c.text!;
+    func cutSet(var str:String){
         let endstr=(str as NSString).substringFromIndex(2);
-
         if(endstr==".0")
         {
             str.removeAtIndex(str.endIndex.predecessor());
             str.removeAtIndex(str.endIndex.predecessor());
             c.text!=str;
         }
-        //var str=c.text!;
+        else
+        {
+            c.text!=str;
+        }
     }
     func StrSet(){
-        let str = c.text!;
+        //let str = c.text!;
        // 获得指定字符位置   rangeOfString()
         //获得指定范围的子字符串  substringWithRange()
-        var left = str.rangeOfString("(");
-        var lindex=left?.startIndex;
-        var right = str.rangeOfString(")");
-        var rindex=right?.startIndex;
+        //var left = str.rangeOfString("(");
+        //var lindex=left?.startIndex;
+        //var right = str.rangeOfString(")");
+        //var rindex=right?.startIndex;
         //let index = str.startIndex.advancedBy(lindex);
         //var index2 = str.startIndex.advancedBy(rindex);
         
