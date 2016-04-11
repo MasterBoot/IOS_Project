@@ -216,8 +216,8 @@ class ViewController: UIViewController {
         }
     }
     func cutSet(var str:String){
-        let endstr=(str as NSString).substringFromIndex(2);
-        if(endstr==".0")
+        let strend=(str as NSString).substringFromIndex(str.characters.count-2);
+        if(strend==".0")
         {
             str.removeAtIndex(str.endIndex.predecessor());
             str.removeAtIndex(str.endIndex.predecessor());
@@ -230,7 +230,7 @@ class ViewController: UIViewController {
     }
     func StrSet(){
         //let str = c.text!;
-       // 获得指定字符位置   rangeOfString()
+        // 获得指定字符位置   rangeOfString()
         //获得指定范围的子字符串  substringWithRange()
         //var left = str.rangeOfString("(");
         //var lindex=left?.startIndex;
@@ -244,8 +244,7 @@ class ViewController: UIViewController {
        // var range = Range<String.Index>(start: lindex,end: rindex);
         //let ns3=(str as NSString).substringWithRange(<#T##range: NSRange##NSRange#>)
         //substringWithRange(NSMakeRange(startindex,right-left);
-        
-            //12*5/(2+3);
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
