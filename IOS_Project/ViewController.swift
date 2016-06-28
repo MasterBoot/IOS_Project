@@ -153,19 +153,12 @@ class ViewController: UIViewController {
         pointLoop=false;
         loop=4;
     }
-    /*@IBAction func x_mode(sender: UIButton) {
-    
-    }*/
-    /*@IBAction func mode(sender: UIButton) {
-    
-    }*/
     @IBAction func mode(sender: UIButton) {
         xSet();
         c.text!="";
         pointLoop=false;
         loop=5;
     }
-    
     @IBAction func Count(sender: UIButton) {
         ySet();
         var endstr:String;
@@ -214,6 +207,7 @@ class ViewController: UIViewController {
         if(c.text!=="0"){
             c.text!="";
         }
+        
     }
     func cutSet(var str:String){
         let strend=(str as NSString).substringFromIndex(str.characters.count-2);
